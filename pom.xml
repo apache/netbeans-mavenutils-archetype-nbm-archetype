@@ -38,7 +38,7 @@ under the License.
     </issueManagement>
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/netbeans-mavenutils-archetype-nbm-archetype.git</connection>
-        <developerConnection>scm:git:gitbox.apache.org/repos/asf/netbeans-mavenutils-archetype-nbm-archetype.git</developerConnection>
+        <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/netbeans-mavenutils-archetype-nbm-archetype.git</developerConnection>
         <url>https://github.com/apache/netbeans-mavenutils-archetype-nbm-archetype</url>
         <tag>master</tag>
     </scm> 
