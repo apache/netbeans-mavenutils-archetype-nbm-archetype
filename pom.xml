@@ -33,8 +33,8 @@ under the License.
     <name>Apache Netbeans Maven Utilties - NetBeans Module Archetype</name>
     <description>Archetype for development of NetBeans modules in Maven.</description>
     <issueManagement>
-        <system>jira</system>
-        <url>https://issues.apache.org/jira/projects/NETBEANS</url>
+        <system>github</system>
+        <url>https://github.com/apache/netbeans/issues</url>
     </issueManagement>
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/netbeans-mavenutils-archetype-nbm-archetype.git</connection>
@@ -54,7 +54,7 @@ under the License.
             <plugins>
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.2.1</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -62,7 +62,7 @@ under the License.
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>3.1.1</version>
+                <version>3.2.1</version>
             </extension>
         </extensions>
     </build>

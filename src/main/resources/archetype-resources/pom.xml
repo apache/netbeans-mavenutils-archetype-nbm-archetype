@@ -13,25 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <repositories>
-        <!--
-        Repository hosting NetBeans modules, especially APIs.
-        Versions are based on IDE releases, e.g.: RELEASE691
-        To create your own repository, use: nbm:populate-repository
-        
-        If you use Apache NetBeans starting with Apache NetBeans 9.0 
-        you can remove the netbeans repository section
-        -->
-        <repository>
-            <id>netbeans</id>
-            <name>NetBeans</name>
-            <url>http://bits.netbeans.org/nexus/content/groups/netbeans/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.netbeans.api</groupId>
@@ -45,25 +26,86 @@
             <plugin>
                 <groupId>org.apache.netbeans.utilities</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>4.4</version>
+                <version>4.7</version>
                 <extensions>true</extensions>
             </plugin>
 
             <plugin>
-                <!-- NetBeans 6.9+ requires JDK 6, starting NetBeans 7.4 source 1.7 is required   -->
+                <!-- NetBeans 13+ requires JDK 11+ -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.9.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <argLine>
+                        --add-opens=java.base/java.net=ALL-UNNAMED
+                        --add-opens=java.base/java.lang.ref=ALL-UNNAMED
+                        --add-opens=java.base/java.lang=ALL-UNNAMED
+                        --add-opens=java.base/java.security=ALL-UNNAMED
+                        --add-opens=java.base/java.util=ALL-UNNAMED
+                        --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED
+                        --add-opens=java.desktop/javax.swing.text=ALL-UNNAMED
+                        --add-opens=java.desktop/javax.swing=ALL-UNNAMED
+                        --add-opens=java.desktop/java.awt=ALL-UNNAMED
+                        --add-opens=java.desktop/java.awt.event=ALL-UNNAMED
+                        --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED
+                        --add-opens=jdk.jshell/jdk.jshell=ALL-UNNAMED
+                        --add-modules=jdk.jshell
+                        --add-exports=java.desktop/sun.awt=ALL-UNNAMED
+                        --add-exports=java.desktop/java.awt.peer=ALL-UNNAMED
+                        --add-exports=java.desktop/com.sun.beans.editors=ALL-UNNAMED
+                        --add-exports=java.desktop/sun.swing=ALL-UNNAMED
+                        --add-exports=java.desktop/sun.awt.im=ALL-UNNAMED
+                        --add-exports=java.desktop/com.sun.java.swing.plaf.motif=ALL-UNNAMED
+                        --add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED
+                        --add-exports=java.management/sun.management=ALL-UNNAMED
+                        --add-exports=java.base/sun.reflect.annotation=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+                        --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+                        --add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+                        --add-exports=jdk.jdeps/com.sun.tools.classfile=ALL-UNNAMED
+                        --add-exports=jdk.jdeps/com.sun.tools.javap=ALL-UNNAMED
+                        --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED
+                        --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED
+                        --add-opens=java.desktop/com.sun.java.swing.plaf.gtk=ALL-UNNAMED
+                        --add-opens=java.desktop/sun.awt.shell=ALL-UNNAMED
+                        --add-opens=java.desktop/sun.awt.im=ALL-UNNAMED
+                        --add-opens=java.base/java.nio=ALL-UNNAMED
+                    </argLine>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.2.2</version>
                 <configuration>
                     <!-- to have the jar plugin pickup the nbm generated manifest -->
                     <archive>
