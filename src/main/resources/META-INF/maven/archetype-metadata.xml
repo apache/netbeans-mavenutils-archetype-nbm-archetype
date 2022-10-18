@@ -39,5 +39,8 @@ under the License.
         <requiredProperty key="netbeansVersion">
             <defaultValue>RELEASE110</defaultValue>
         </requiredProperty>
+        <requiredProperty key="addopensflagsList">
+            <defaultValue> </defaultValue>
+        </requiredProperty>
     </requiredProperties>
 </archetype-descriptor>
