@@ -14,7 +14,6 @@
         <!-- NetBeans 22+ requires JDK 17+ -->
         <maven.compiler.release>17</maven.compiler.release>
         <jpms-flags>
-            -Djava.security.manager=allow
             --add-opens=java.base/java.net=ALL-UNNAMED
             <!-- add more "add opens" if needed -->
         </jpms-flags>
@@ -34,20 +33,20 @@
             <plugin>
                 <groupId>org.apache.netbeans.utilities</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>14.2</version>
+                <version>14.3</version>
                 <extensions>true</extensions>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.5.4</version>
                 <configuration>
                     <argLine>${jpms-flags}</argLine>
                 </configuration>

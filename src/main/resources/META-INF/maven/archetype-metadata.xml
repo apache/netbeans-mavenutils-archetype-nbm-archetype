@@ -37,7 +37,7 @@ under the License.
     </fileSets>
     <requiredProperties>
         <requiredProperty key="netbeansVersion">
-            <defaultValue>RELEASE110</defaultValue>
+            <defaultValue>RELEASE270</defaultValue>
         </requiredProperty>
     </requiredProperties>
 </archetype-descriptor>
